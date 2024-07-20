@@ -2,6 +2,8 @@ import os
 
 from PIL import Image
 
+import tkinter as tk
+from tkinter import filedialog
 
 def convert(file, output_dir):
     logo = Image.open(file)
@@ -13,13 +15,15 @@ def convert(file, output_dir):
     logo.save(output_dir + "\\" + output_file, format='ICO')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    input_path = "C:\\your\\input\\folder\\Icons"
-    output_path = "C:\\your\\output\\folder\\Icons\\Converted"
-
+def convert_batch(input_path, output_path):
     for file in os.listdir(input_path):
         if (file.endswith(".png")):
-            convert(input_path+"\\"+file, output_path)
+            convert(input_path + "\\" + file, output_path)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+if __name__ == '__main__':
+    input_path = filedialog.askdirectory(initialdir="C:\\Users\\bloch\\Desktop")
+    output_path = filedialog.askdirectory(initialdir="C:\\Users\\bloch\\Desktop")
+
+    convert_batch(input_path, output_path)
+
