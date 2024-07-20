@@ -1,3 +1,3 @@
-This script is extremely simple at the moment. 
+Simple script to convert a batch of PNGs to ICO files.
 
-Edit the hardcoded paths in main to choose your input and output folders.
+Select the input and output folder via file dialogs and the conversion happens immediately afterwards.
